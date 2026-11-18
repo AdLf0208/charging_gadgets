@@ -1,0 +1,30 @@
+id = "charginggadgets"
+name = "Charging Gadgets"
+version = "0.2.0"
+description = """A port of Charging Gadgets for Horizon, slice 1: the Charging Station. One block whose
+fuel slot burns a furnace fuel item into a 1,000,000 FE buffer (one coal is 32 steps of 625 FE,
+20,000 FE) and fills the item in its charge slot at up to 2,500 FE a tick through the item energy
+capability, with a two-slot menu whose readout is the buffer and the burning steps. The block item
+carries its own charge, shows it in the tooltip and fills the block it is placed as. Not yet
+ported: breaking a station with energy, the GUI texture and its bars, per-slot insert rules, and
+particles/light/comparator output."""
+authors = ["Direwolf20", "ErrorMikey", "AdLf0208"]
+license = "MIT"
+homepage = "https://github.com/AdLf0208/charginggadgets"
+issues = "https://github.com/Direwolf20-MC/ChargingGadgets/issues"
+# A native mod: Rust in src/, compiled by the launcher against the game build [native] pins,
+# beside the carried assets/ and data/. The id is the resource namespace and the only identity:
+# Cargo's package name and version are not the mod's.
+api = "0.2"
+# "both" is the installation side, not a hook's: the station runs on the server, and a LAN host
+# or single-player world runs it inside the client installation.
+side = "both"
+# The one shared value every manifest carries ("May add blocks, items, mob effects and entity
+# types"); this mod's content declares a block, an item and a menu, so it is used, not just
+# required.
+capabilities = ["registries"]
+
+[native]
+game = "26.3"
+horizon = "0b14f8acfd97fa2c750e42795249dcc981178ca4"
+mixins = "e59da9094f0c2fdda6c627fe9eff22dec6a906f0"
